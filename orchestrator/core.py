@@ -9,7 +9,9 @@ from agents.research import ResearchAgent
 AGENTS = {"trading": TradingAgent(), "jobs": JobsAgent(), "research": ResearchAgent()}
 SYSTEM = """Pick EXACTLY ONE sub-agent. Return JSON only: {"agent":"<name>","skill":"<skill>","params":{},"command":"<cmd>","url":""}
 Valid agents: trading, jobs, research.
-- trading: set "skill" (e.g. "bybit.ticker") + "params"
+- trading: set "skill" (e.g. "bybit.ticker", "bybit.balance", "dkhyr.info", "dkhyr.balance") + "params".
+  For bybit.ticker, params MUST be {"symbol": "<BASE>USDT", "category": "linear"} — always append USDT to the
+  base asset (e.g. "BTCUSDT", not "BTCUSD" or "BTC"). Never use any other quote currency.
 - jobs: set "command" (discover|score|queue|list|stats)
 - research: set "url"
 If nothing matches: {"agent": null}"""
