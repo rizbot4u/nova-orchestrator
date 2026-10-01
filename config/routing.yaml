@@ -1,0 +1,11 @@
+version: "routing@v1"
+rules:
+  trading:
+    agent: trading
+    description: "Live prices, balances, on-chain transfers"
+  jobs:
+    agent: jobs
+    description: "Job discovery, scoring, drafting"
+  research:
+    agent: research
+    description: "Fetch a URL and summarize"
